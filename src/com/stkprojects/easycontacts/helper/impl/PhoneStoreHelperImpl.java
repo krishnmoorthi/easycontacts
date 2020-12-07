@@ -1,21 +1,24 @@
 package com.stkprojects.easycontacts.helper.impl;
 
-import com.stkprojects.easycontacts.helper.DataHelper;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.List;
+
 import com.stkprojects.easycontacts.helper.StoreHelper;
 import com.stkprojects.easycontacts.model.Contact;
 import com.stkprojects.easycontacts.model.Phone;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.List;
-
 public class PhoneStoreHelperImpl  implements StoreHelper<List<Phone>, String> {
+	
     private StoreDataHelper storeDataHelper;
+    private PhoneDataHelper phoneDataHelper;
 
     public PhoneStoreHelperImpl(){
         storeDataHelper = new StoreDataHelper();
+        phoneDataHelper = new PhoneDataHelper();
     }
 
     @Override
@@ -33,7 +36,17 @@ public class PhoneStoreHelperImpl  implements StoreHelper<List<Phone>, String> {
     }
 
     @Override
-    public void commitDataToStore(List<Phone> contacts, String file) {
-
+    public void commitDataToStore(List<Phone> phoneList, String file) {
+    	StringBuilder data = new StringBuilder("");
+		for (Phone phone : phoneList) {
+			data.append(phoneDataHelper.prepareRecord(phone)).append(
+					System.lineSeparator());
+		}
+		try(FileWriter writer = new FileWriter(file)) {
+			writer.write(data.toString());
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
     }
 }

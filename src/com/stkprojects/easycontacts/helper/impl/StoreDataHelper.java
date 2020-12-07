@@ -1,15 +1,12 @@
 package com.stkprojects.easycontacts.helper.impl;
 
+import java.io.FileNotFoundException;
+
 import com.stkprojects.easycontacts.common.Constants;
 import com.stkprojects.easycontacts.model.Address;
 import com.stkprojects.easycontacts.model.Contact;
 import com.stkprojects.easycontacts.model.Phone;
 import com.stkprojects.easycontacts.utils.TypeConversionUtil;
-
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.List;
 
 public class StoreDataHelper {
 
@@ -49,10 +46,6 @@ public class StoreDataHelper {
         address.setState(fieldValue[6]);
         address.setPin_or_zip_code(fieldValue[7]);
         return address;
-    }
-
-    private FileReader read_store_file(String file) throws FileNotFoundException {
-        return new FileReader(file);
     }
 
     private String[] getFields(String line){
