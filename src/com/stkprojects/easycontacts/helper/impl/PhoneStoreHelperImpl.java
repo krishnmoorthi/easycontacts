@@ -7,18 +7,17 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.List;
 
+import com.stkprojects.easycontacts.helper.DataHelper;
 import com.stkprojects.easycontacts.helper.StoreHelper;
-import com.stkprojects.easycontacts.model.Contact;
 import com.stkprojects.easycontacts.model.Phone;
 
 public class PhoneStoreHelperImpl  implements StoreHelper<List<Phone>, String> {
 	
     private StoreDataHelper storeDataHelper;
-    private PhoneDataHelper phoneDataHelper;
+    private DataHelper<Phone> phoneDataHelper;
 
     public PhoneStoreHelperImpl(){
         storeDataHelper = new StoreDataHelper();
-        phoneDataHelper = new PhoneDataHelper();
     }
 
     @Override

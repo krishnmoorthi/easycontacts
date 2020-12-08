@@ -7,14 +7,14 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.List;
 
+import com.stkprojects.easycontacts.helper.DataHelper;
 import com.stkprojects.easycontacts.helper.StoreHelper;
 import com.stkprojects.easycontacts.model.Address;
-import com.stkprojects.easycontacts.model.Phone;
 
 public class AddressStoreHelperImpl implements StoreHelper<List<Address>, String> {
 
     private StoreDataHelper storeDataHelper;
-    private AddressDataHelper addressDataHelper;
+    private DataHelper<Address> addressDataHelper;
 
     public AddressStoreHelperImpl() {
         storeDataHelper = new StoreDataHelper();

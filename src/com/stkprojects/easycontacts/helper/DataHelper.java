@@ -1,6 +1,5 @@
 package com.stkprojects.easycontacts.helper;
 
-
 public interface DataHelper<T> {
 
     public void add(T t);

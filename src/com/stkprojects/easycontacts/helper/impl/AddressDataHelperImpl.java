@@ -6,11 +6,11 @@ import com.stkprojects.easycontacts.common.Constants;
 import com.stkprojects.easycontacts.helper.DataHelper;
 import com.stkprojects.easycontacts.model.Address;
 
-public class AddressDataHelper implements DataHelper<Address> {
+public class AddressDataHelperImpl implements DataHelper<Address> {
 	
 	private List<Address> addresses;
 	
-	public AddressDataHelper(List<Address> addresses){
+	public AddressDataHelperImpl(List<Address> addresses){
 		this.addresses = addresses;
 	}
 

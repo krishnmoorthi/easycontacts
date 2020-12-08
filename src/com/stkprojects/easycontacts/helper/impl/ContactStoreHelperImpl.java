@@ -7,6 +7,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.List;
 
+import com.stkprojects.easycontacts.helper.DataHelper;
 import com.stkprojects.easycontacts.helper.StoreHelper;
 import com.stkprojects.easycontacts.model.Contact;
 
@@ -14,7 +15,7 @@ public class ContactStoreHelperImpl implements
 		StoreHelper<List<Contact>, String> {
 
 	private StoreDataHelper storeDataHelper;
-	private ContactDataHelper contactDataHelper;
+	private DataHelper<Contact> contactDataHelper;
 
 	public ContactStoreHelperImpl() {
 		storeDataHelper = new StoreDataHelper();
