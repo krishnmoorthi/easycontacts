@@ -10,6 +10,7 @@ import java.util.List;
 import com.stkprojects.easycontacts.helper.DataHelper;
 import com.stkprojects.easycontacts.helper.StoreHelper;
 import com.stkprojects.easycontacts.model.Contact;
+import com.stkprojects.easycontacts.utils.StoreUtil;
 
 public class ContactStoreHelperImpl implements
 		StoreHelper<List<Contact>, String> {
@@ -24,6 +25,7 @@ public class ContactStoreHelperImpl implements
 	@Override
 	public void LoadStoreData(List<Contact> contacts, String file)
 			throws FileNotFoundException {
+		StoreUtil.checkAndCreateStoreFiles(file);
 		FileReader reader = new FileReader(file);
 		try (BufferedReader buffer = new BufferedReader(reader)) {
 			String line = buffer.readLine();
@@ -46,8 +48,8 @@ public class ContactStoreHelperImpl implements
 		try(FileWriter writer = new FileWriter(file)) {
 			writer.write(data.toString());
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
+
 }

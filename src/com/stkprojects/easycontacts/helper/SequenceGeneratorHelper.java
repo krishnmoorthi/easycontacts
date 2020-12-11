@@ -1,5 +1,5 @@
 package com.stkprojects.easycontacts.helper;
 
-public interface SequenceGeneratorHelper {
+public interface SequenceGeneratorHelper<T> {
     long getNext();
 }

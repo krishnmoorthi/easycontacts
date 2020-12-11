@@ -8,6 +8,7 @@ public class Constants {
     public static String CONTACTS_STORE_FILE = "store/contacts.ec";
     public static String PHONE_STORE_FILE = "store/phone.ec";
     public static String ADDRESS_STORE_FILE = "store/address.ec";
+    public static String FILE_SEPERATOR = "/";
 
     private Constants() {
     }

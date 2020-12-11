@@ -10,6 +10,7 @@ import java.util.List;
 import com.stkprojects.easycontacts.helper.DataHelper;
 import com.stkprojects.easycontacts.helper.StoreHelper;
 import com.stkprojects.easycontacts.model.Phone;
+import com.stkprojects.easycontacts.utils.StoreUtil;
 
 public class PhoneStoreHelperImpl  implements StoreHelper<List<Phone>, String> {
 	
@@ -22,6 +23,7 @@ public class PhoneStoreHelperImpl  implements StoreHelper<List<Phone>, String> {
 
     @Override
     public void LoadStoreData(List<Phone> phoneList, String file) throws FileNotFoundException {
+		StoreUtil.checkAndCreateStoreFiles(file);
         FileReader reader = new FileReader(file);
         try(BufferedReader buffer = new BufferedReader(reader)){
             String line = buffer.readLine();

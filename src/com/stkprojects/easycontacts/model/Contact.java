@@ -1,5 +1,7 @@
 package com.stkprojects.easycontacts.model;
 
+import java.util.Objects;
+
 public class Contact {
 
     private long id;
@@ -74,6 +76,31 @@ public class Contact {
     public void setCompany(String company) {
         this.company = company;
     }
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#hashCode()
+	 */
+	@Override
+	public int hashCode() {
+		return Objects.hash(date_of_birth, email, firstname, id, lastname);
+	}
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Contact other = (Contact) obj;
+		return Objects.equals(date_of_birth, other.date_of_birth) && Objects.equals(email, other.email)
+				&& Objects.equals(firstname, other.firstname) && id == other.id
+				&& Objects.equals(lastname, other.lastname);
+	}
 
 
 }

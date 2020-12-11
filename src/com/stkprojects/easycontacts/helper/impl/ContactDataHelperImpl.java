@@ -5,18 +5,22 @@ import java.util.stream.Collectors;
 
 import com.stkprojects.easycontacts.common.Constants;
 import com.stkprojects.easycontacts.helper.DataHelper;
+import com.stkprojects.easycontacts.helper.SequenceGeneratorHelper;
 import com.stkprojects.easycontacts.model.Contact;
 
 public class ContactDataHelperImpl implements DataHelper<Contact> {
 
 	private List<Contact> contacts;
+	private SequenceGeneratorHelper<Contact> sequence;
 
 	public ContactDataHelperImpl(List<Contact> contacts) {
 		this.contacts = contacts;
+		this.sequence = new ContactSequenceGeneratorHelperImpl(contacts);
 	}
 
 	@Override
 	public void add(Contact contact) {
+		contact.setId(sequence.getNext());
 		contacts.add(contact);
 	}
 
@@ -43,4 +47,5 @@ public class ContactDataHelperImpl implements DataHelper<Contact> {
 				.append(Constants.FIELD_SEPARATOR).append(Constants.RECORD_ENDER);
 		return record.toString();
 	}
+
 }
