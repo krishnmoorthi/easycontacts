@@ -49,6 +49,9 @@ public class StoreOperationTest {
 		phone.setContact_id(1);
 		phone.setNumber(TypeConversionUtil.stringToLong("9739391449"));
 		phone.setType("personal");
+		phoneList.add(phone);
+		
+		
 	}
 
 	/**
