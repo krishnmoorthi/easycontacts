@@ -24,21 +24,33 @@ public class StoreOperation {
 		addressStoreHelper = new AddressStoreHelperImpl();
 	}
 
-	public void LoadStoreData(List<Contact> contacts, List<Phone> phone,
-			List<Address> address) throws FileNotFoundException {
-		contactStoreHelper.LoadStoreData(contacts,
-				Constants.CONTACTS_STORE_FILE);
+	public void LoadStoreData(List<Contact> contacts, List<Phone> phone, List<Address> address)
+			throws FileNotFoundException {
+		contactStoreHelper.LoadStoreData(contacts, Constants.CONTACTS_STORE_FILE);
 		phoneStoreHelper.LoadStoreData(phone, Constants.PHONE_STORE_FILE);
 		addressStoreHelper.LoadStoreData(address, Constants.ADDRESS_STORE_FILE);
 	}
 
-	public void commitDataInStore(List<Contact> contacts, List<Phone> phone,
-			List<Address> address) {
-		contactStoreHelper.commitDataToStore(contacts,
-				Constants.CONTACTS_STORE_FILE);
-		phoneStoreHelper.commitDataToStore(phone, Constants.PHONE_STORE_FILE);
-		addressStoreHelper.commitDataToStore(address,
-				Constants.ADDRESS_STORE_FILE);
+	public String commitDataInStore(List<Contact> contacts, List<Phone> phone, List<Address> address) {
+		if ("SUCCESS".equalsIgnoreCase(contactStoreHelper.commitDataToStore(contacts, Constants.CONTACTS_STORE_FILE))
+				&& "SUCCESS".equalsIgnoreCase(phoneStoreHelper.commitDataToStore(phone, Constants.PHONE_STORE_FILE))
+				&& "SUCCESS".equalsIgnoreCase(
+						addressStoreHelper.commitDataToStore(address, Constants.ADDRESS_STORE_FILE))) {
+			return "SUCCESS";
+		} else {
+			return "FAILURE";
+		}
+	}
+
+	public String deleteDataInStore() {
+		if ("SUCCESS".equalsIgnoreCase(contactStoreHelper.deleteStoreData(Constants.CONTACTS_STORE_FILE))
+				&& "SUCCESS".equalsIgnoreCase(phoneStoreHelper.deleteStoreData(Constants.PHONE_STORE_FILE))
+				&& "SUCCESS".equalsIgnoreCase(addressStoreHelper.deleteStoreData(Constants.ADDRESS_STORE_FILE))) {
+			return "SUCCESS";
+		} else {
+			return "FAILURE";
+		}
+
 	}
 
 }

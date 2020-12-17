@@ -5,5 +5,4 @@ public interface DataHelper<T> {
     public void add(T t);
     public void delete(T t);
     public void edit(T t);
-    public String prepareRecord(T t);
 }

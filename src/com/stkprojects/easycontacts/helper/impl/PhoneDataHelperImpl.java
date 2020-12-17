@@ -3,7 +3,6 @@ package com.stkprojects.easycontacts.helper.impl;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import com.stkprojects.easycontacts.common.Constants;
 import com.stkprojects.easycontacts.helper.DataHelper;
 import com.stkprojects.easycontacts.helper.SequenceGeneratorHelper;
 import com.stkprojects.easycontacts.model.Phone;
@@ -36,13 +35,4 @@ public class PhoneDataHelperImpl implements DataHelper<Phone> {
 		phoneList.add(phone);
 	}
 
-	@Override
-	public String prepareRecord(Phone phone) {
-		StringBuilder record = new StringBuilder("");
-		record.append(phone.getId()).append(Constants.FIELD_SEPARATOR).append(phone.getContact_id())
-				.append(Constants.FIELD_SEPARATOR).append(phone.getType()).append(Constants.FIELD_SEPARATOR)
-				.append(phone.getNumber()).append(Constants.FIELD_SEPARATOR).append(Constants.RECORD_ENDER);
-		return record.toString();
-
-	}
 }

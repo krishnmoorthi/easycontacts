@@ -5,10 +5,6 @@ package com.stkprojects.easycontacts.model;
 
 import java.util.List;
 
-import com.stkprojects.easycontacts.model.Address;
-import com.stkprojects.easycontacts.model.Contact;
-import com.stkprojects.easycontacts.model.Phone;
-
 /**
  * @author vishwa
  *
