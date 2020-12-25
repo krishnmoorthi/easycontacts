@@ -1,7 +1,6 @@
 package com.stkprojects.easycontacts.helper.impl;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 import com.stkprojects.easycontacts.helper.DataHelper;
 import com.stkprojects.easycontacts.helper.SequenceGeneratorHelper;
@@ -18,8 +17,9 @@ public class PhoneDataHelperImpl implements DataHelper<Phone> {
 	}
 
 	@Override
-	public void add(Phone phone) {
+	public void add(long contact_id,Phone phone) {
 		phone.setId(sequence.getNext());
+		phone.setContact_id(contact_id);
 		phoneList.add(phone);
 	}
 
@@ -29,10 +29,11 @@ public class PhoneDataHelperImpl implements DataHelper<Phone> {
 	}
 
 	@Override
-	public void edit(Phone phone) {
-		delete(phoneList.stream().filter(phoneLst -> phoneLst.getId() == phone.getId()).collect(Collectors.toList())
-				.get(0));
-		phoneList.add(phone);
+	public void edit(Phone oldPhone, Phone newPhone) {
+		int index = 0;
+		if((index = phoneList.indexOf(oldPhone)) > 0) {
+			phoneList.set(index, newPhone);
+		}
 	}
 
 }

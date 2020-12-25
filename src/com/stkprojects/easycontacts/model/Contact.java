@@ -12,7 +12,7 @@ public class Contact {
     private String website;
     private String company;
     private String date_of_birth;
-
+    
     public String getDate_of_birth() {
         return date_of_birth;
     }
@@ -101,6 +101,5 @@ public class Contact {
 				&& Objects.equals(firstname, other.firstname) && id == other.id
 				&& Objects.equals(lastname, other.lastname);
 	}
-
 
 }

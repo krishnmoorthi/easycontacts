@@ -21,7 +21,7 @@ public class ContactSequenceGeneratorHelperImpl implements SequenceGeneratorHelp
 	public ContactSequenceGeneratorHelperImpl(List<Contact> contacts) {
 		long value = getMax(contacts);
 		if (0 == value) {
-			this.value = new AtomicLong(1);
+			this.value = new AtomicLong(0);
 		} else {
 			this.value = new AtomicLong(value);
 		}

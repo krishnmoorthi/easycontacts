@@ -21,7 +21,7 @@ public class AddressSequenceGeneratorHelperImpl implements SequenceGeneratorHelp
 	public AddressSequenceGeneratorHelperImpl(List<Address> addressList) {
 		long value = getMax(addressList);
 		if (0 == value) {
-			this.value = new AtomicLong(1);
+			this.value = new AtomicLong(0);
 		} else {
 			this.value = new AtomicLong(value);
 		}

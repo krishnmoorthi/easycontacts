@@ -8,28 +8,32 @@ import com.stkprojects.easycontacts.model.Address;
 
 public class AddressDataHelperImpl implements DataHelper<Address> {
 	
-	private List<Address> addresses;
+	private List<Address> addressList;
 	private SequenceGeneratorHelper<Address> sequence;
 	
-	public AddressDataHelperImpl(List<Address> addresses){
-		this.addresses = addresses;
-		this.sequence = new AddressSequenceGeneratorHelperImpl(addresses);
+	public AddressDataHelperImpl(List<Address> addressList){
+		this.addressList = addressList;
+		this.sequence = new AddressSequenceGeneratorHelperImpl(addressList);
 	}
 
     @Override
-    public void add(Address address) {
+    public void add(long contact_id, Address address) {
     	address.setId(sequence.getNext());
-    	addresses.add(address);
+    	address.setContact_id(contact_id);
+    	addressList.add(address);
     }
 
     @Override
     public void delete(Address address) {
-    	addresses.remove(address);
+    	addressList.remove(address);
     }
 
     @Override
-    public void edit(Address address) {
-    	//TODO: Search and modify address
+    public void edit(Address oldAddress, Address newAddress) {
+    	int index=0;
+    	if((index = addressList.indexOf(oldAddress)) > 0) {
+    		addressList.set(index, newAddress);
+    	}
     }
 
    
