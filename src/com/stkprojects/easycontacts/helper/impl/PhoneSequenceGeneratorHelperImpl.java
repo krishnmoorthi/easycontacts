@@ -21,7 +21,7 @@ public class PhoneSequenceGeneratorHelperImpl implements SequenceGeneratorHelper
 	public PhoneSequenceGeneratorHelperImpl(List<Phone> phoneList) {
 		long value = getMax(phoneList);
 		if (0 == value) {
-			this.value = new AtomicLong(1);
+			this.value = new AtomicLong(0);
 		} else {
 			this.value = new AtomicLong(value);
 		}
